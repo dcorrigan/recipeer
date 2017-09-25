@@ -1,3 +1,4 @@
+require_relative 'lib/recipeer'
 require 'roda'
 
 class RecipeerApp < Roda

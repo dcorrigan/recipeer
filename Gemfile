@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'roda'
+gem 'bcrypt'
 gem 'hangry'
 gem 'ingreedy'
 

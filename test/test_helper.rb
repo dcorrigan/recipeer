@@ -1,3 +1,5 @@
+ENV['RECIPEER_ENVIRONMENT'] = 'test'
+
 require 'minitest/autorun'
 require 'minitest/hooks/test'
 require_relative '../app'
