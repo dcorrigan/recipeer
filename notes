@@ -1,0 +1,4 @@
+- needs to know who i am, plus pinboard authentication
+  - single-user app? prolly for now; seed auth data as env variables
+  - token-based auth for client
+- needs to parse and store recipes
