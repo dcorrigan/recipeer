@@ -1,0 +1,40 @@
+Run options: --seed 59737
+
+# Running:
+
+E
+
+Finished in 0.003197s, 312.7839 runs/s, 0.0000 assertions/s.
+
+  1) Error:
+UserRecipesTest#test_can_get_raw_recipes:
+WebMock::NetConnectNotAllowedError: Real HTTP connections are disabled. Unregistered request: GET https://api.pinboard.in/v1/all?auth_token=test-user:123&tag=recipes with headers {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Ruby'}
+
+You can stub this request with the following snippet:
+
+stub_request(:get, "https://api.pinboard.in/v1/all?auth_token=test-user:123&tag=recipes").
+  with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Ruby'}).
+  to_return(:status => 200, :body => "", :headers => {})
+
+registered request stubs:
+
+stub_request(:any, "/pinboard/").
+  with(:body => "[{\"href\":\"www.food.com\",\"description\":\"A Very Good Recipe\"}]")
+
+============================================================
+    /home/dan/.gem/ruby/2.4.1/gems/webmock-2.3.1/lib/webmock/http_lib_adapters/net_http.rb:114:in `request'
+    /home/dan/.rubies/ruby-2.4.1/lib/ruby/2.4.0/open-uri.rb:329:in `block in open_http'
+    /home/dan/.gem/ruby/2.4.1/gems/webmock-2.3.1/lib/webmock/http_lib_adapters/net_http.rb:123:in `start_without_connect'
+    /home/dan/.gem/ruby/2.4.1/gems/webmock-2.3.1/lib/webmock/http_lib_adapters/net_http.rb:150:in `start'
+    /home/dan/.rubies/ruby-2.4.1/lib/ruby/2.4.0/open-uri.rb:323:in `open_http'
+    /home/dan/.rubies/ruby-2.4.1/lib/ruby/2.4.0/open-uri.rb:741:in `buffer_open'
+    /home/dan/.rubies/ruby-2.4.1/lib/ruby/2.4.0/open-uri.rb:212:in `block in open_loop'
+    /home/dan/.rubies/ruby-2.4.1/lib/ruby/2.4.0/open-uri.rb:210:in `catch'
+    /home/dan/.rubies/ruby-2.4.1/lib/ruby/2.4.0/open-uri.rb:210:in `open_loop'
+    /home/dan/.rubies/ruby-2.4.1/lib/ruby/2.4.0/open-uri.rb:151:in `open_uri'
+    /home/dan/.rubies/ruby-2.4.1/lib/ruby/2.4.0/open-uri.rb:721:in `open'
+    /home/dan/.rubies/ruby-2.4.1/lib/ruby/2.4.0/open-uri.rb:35:in `open'
+    /home/dan/code/recipeer/lib/recipeer/reaper.rb:21:in `recipe_list'
+    test/recipeer/user_recipes_test.rb:17:in `test_can_get_raw_recipes'
+
+1 runs, 0 assertions, 0 failures, 1 errors, 0 skips

@@ -25,9 +25,25 @@ module Recipeer
         end
       end
 
-      def add_user(uname, pword)
-        users[uname] = pword
+      def add_user(uname, pword, auth_token)
+        users[uname] = [pword, auth_token]
         wrapped { @data['users'] = users }
+      end
+
+      def recipes
+        @users ||= wrapped do
+          if @data['recipes']
+            @data['recipes']
+          else
+            {}
+          end
+        end
+      end
+
+      def add_recipe(uname, url, data)
+        recipes[uname] ||= {}
+        recipes[uname][url] = data
+        wrapped { @data['recipes'] = recipes }
       end
 
       private

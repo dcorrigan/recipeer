@@ -8,6 +8,7 @@ gem 'ingreedy'
 group :development do
   gem 'pry'
   gem 'rack_toolkit'
+  gem 'webmock'
   gem 'minitest'
   gem 'minitest-hooks'
 end
